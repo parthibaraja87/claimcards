@@ -1,0 +1,196 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "sap.com.nhg.eclaimcardform",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "ach": "ach",
+        "crossNavigation": {
+            "inbounds": {
+                "sap-com-nhg-eclaimcardform-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "eclaimform",
+                    "action": "display",
+                    "title": "E-Claim",
+                    "subTitle": "",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://task",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "sap.com.nhg.eclaimcardform.view.Overview",
+            "type": "XML",
+            "async": true,
+            "id": "Overview"
+        },
+        "dependencies": {
+            "minUI5Version": "1.66.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.com.nhg.eclaimcardform.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "sap.com.nhg.eclaimcardform.view",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "clearControlAggregation": false
+            },
+            "routes": [
+                {
+                    "name": "RouteOverview",
+                    "pattern": "RouteOverview",
+                    "target": [
+                        "TargetOverview"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetOverview": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "Overview",
+                    "viewName": "Overview"
+                }
+            }
+        }
+    },
+    "sap.card": {
+		"header": {
+			"title": "E-Claims",
+			"subTitle": "",
+			"icon": {
+				"src": "sap-icon://form"
+			}
+		},
+		"type": "AdaptiveCard",
+        "designtime": "dt/configuration",
+		"content": {
+			"$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+			"type": "AdaptiveCard",
+			"version": "1.0",
+			"body": [
+				{
+					"type": "TextBlock",
+					"text": "Member Name",
+					"isSubtle": true,
+					"size": "medium"
+				},
+				
+				{
+					"type": "Input.ChoiceSet",
+                    "id": "myColor",
+                    "style": "compact",
+                    "isMultiSelect": false,
+                    "value": "",
+                    "choices": [
+                            {
+                                "title": "Aanya Singh",
+                                "value": "AS"
+                            },
+                            {
+                            "title": "David Smith",
+                            "value": "DS"
+                            },
+                            {
+                            "title": "Morris John",
+                            "value": "MJ"
+                            }
+      ]
+                },
+                {
+					"type": "TextBlock",
+					"text": "What would you like claim today?",
+					"isSubtle": true,
+					"size": "medium"
+                },
+                {
+								"type": "Input.ChoiceSet",
+								"id": "SingleSelectVal",
+                                "style": "expanded",
+                                "value": "1",
+								"choices": [
+									{
+										"title": "Medical",
+										"value": "1"
+									},
+									{
+										"title": "Transport",
+										"value": "2"
+                                    },
+                                    {
+										"title": "Other",
+										"value": "3"
+									}
+								]
+							}		
+				
+				
+                
+			],
+			"actions": [
+				
+				{
+					"type": "Action.Submit",
+					"title": "Submit"
+				}
+			]
+		}
+	},
+"sap.platform.mobilecards": {
+        "compatible": false
+    }
+}

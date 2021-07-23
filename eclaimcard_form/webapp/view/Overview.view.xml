@@ -1,0 +1,9 @@
+<mvc:View
+    controllerName="sap.com.nhg.eclaimcardform.controller.Overview"
+    xmlns:mvc="sap.ui.core.mvc"
+   xmlns:w="sap.ui.integration.widgets"
+displayBlock="true"
+    xmlns="sap.m"
+>
+<w:Card  manifest="./manifest.json" width="360px" height="auto" action="onActionLog"/>
+</mvc:View>
